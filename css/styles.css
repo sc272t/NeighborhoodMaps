@@ -1,0 +1,157 @@
+      body {
+        font-family: Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+		overflow-x: hidden;
+      }
+      input {
+        font-size: 12px;
+      }
+      h1 {
+        color: #525454;
+        font-size: 22px;
+        margin: 0 0 10px 0;
+        text-align: center;
+      }
+	  #googleMapsError {
+		  padding-left: 20px;
+		  color: white;
+	  }
+
+      hr {
+        background: #D0D7D9;
+        height: 1px;
+        margin: 20px 0 20px 0;
+        border: none;
+      }
+
+     
+      #pano {
+        width: 200px;
+        height: 200px;
+      }
+      .text {
+        font-size: 12px;
+      }
+	   
+	  #zoom-to-area-text {
+        position: relative;
+        width: 100%;
+      }
+      #zoom-to-area {
+        width: 24%;
+      }
+
+	#map {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  left: 0;
+	  right: 0;
+	}
+
+
+.sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  padding-top: 10px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.7);
+  transition: all 0.5s ease;
+}
+
+.sidebar-wrapper {
+  width: 350px;
+}
+
+
+ul {
+list-style:none;
+}
+
+ul li {
+color:#FFF;
+background-color:#2E87DA;
+margin:5px;
+padding:1.5%;
+max-width: 300px;
+}
+
+ul li:hover {
+background-color:green;
+}
+
+.input-group
+{	padding-left: 30px;
+	width:330px;
+}
+
+.zoom
+{
+	padding-left: 30px;
+	width:330px;
+}
+.header-title {
+	color: white;
+}
+
+/* Media Queries for Responsive Design */
+/* For smaller displays i.e. mobile devices */
+@media screen and (max-width: 800px) {
+
+	#menu {
+	 z-index: 1000;
+	 position: fixed;
+	}
+	.wrapper {
+		width: 100%;
+	}
+		.sidebar-wrapper {
+        padding: 0;
+        width: 0;
+    }
+	#wrapper.toggled .sidebar-wrapper {
+	width: 265px;
+	}
+	#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+	}
+#wrapper.toggled {
+  padding-left: 265px;
+}
+ul li {
+	width: 200px;
+}
+.input-group
+{	padding-left: 10px;
+	width:230px;
+}
+ #zoom-to-area-text {
+        width: 65%;
+      }
+}
+
+/* For devices with bigger display */
+@media screen and (min-width: 801px) {
+	#menu {
+	   z-index: 1000;
+	   padding-left: 300px;
+	   position: fixed;
+	}
+	#wrapper.toggled .sidebar-wrapper {
+	width: 0px;
+	}
+	#wrapper.toggled #menu {
+	padding-left: 0px;
+	}
+
+}

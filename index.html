@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+	<title>NY-NJ Path Stations</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+		<div id="wrapper">
+            <div class="sidebar-wrapper">
+						<div>
+						<h4 class="header-title"><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp NY-NJ Path Station Map</strong></h4>						
+						</div>
+                <div class="input-group">
+                    <input class="form-control searchedName" placeholder="Filter Locations" type="text" data-bind="textInput : searchedLocation">
+					<input type="reset" name="filter" id="filter" data-bind="click: resetLocation">
+				</div>
+				<hr>
+				<div class="row" id="list-view">
+					<ul id="locations-list" data-bind="foreach :filteredLocations">
+						<a href="#"><li class = "listLocation" data-bind="text:title,click: $parent.selectedLocation"></li></a>
+					</ul>
+				</div>
+				<hr>
+				<div class="zoom">
+				<form>
+					<input class="form-control" id="zoom-to-area-text" type="text" placeholder="Enter street or location">
+					<br>
+					<input id="zoom-to-area" type="button" value="Zoom">
+					<input id="showMap" type="button" value="Reset Map">
+					<input type="reset" value="Clear">
+				</form>
+				</div>
+				<br>
+            </div>
+            <div id="menu">
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+                    <i class="fa fa-bars fa-2x"></i>
+                </a>
+            </div>
+        </div>
+
+      <div id="map">
+	  </div>
+	  <div id="googleMapsError" class="googleMapsError" data-bind="visible: googleMapsError">
+		<p><strong>Oops Google Maps API Failed to Load! <br>Please try again later</strong></p>
+	  </div>
+	  <!-- javascript to dynamically wrap the hamburger icon and wrapper -->
+	<script>
+        $("#menu-toggle").click(function(e){
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+	<script>
+		$("#list-view").click(function(c) {
+			c.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		 });
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"> </script>
+	<script src="js/map.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/knockout3.4.2.js"></script>
+	
+	<script async defer onerror="googleMapsError()"
+        src=
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBBenl1LGfp6IypymVg-wXfxAnoyJYWXM8&libraries=places,geometry&v=3&callback=initMap">
+    </script>
+  </body>
+</html>
